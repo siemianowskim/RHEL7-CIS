@@ -347,7 +347,8 @@
       - services
       - patch
       - rule_2.2.3
-
+  ignore_errors: yes
+  
 - name: "SCORED | 2.2.4 | PATCH | Ensure CUPS is not enabled"
   service:
       name: cups
