@@ -462,7 +462,7 @@
       - level1
       - patch
       - rule_2.2.9
-  gnore_errors: yes
+  ignore_errors: yes
 
 - name: "SCORED | 2.2.10 | PATCH | Ensure HTTP server is not enabled"
   service:
