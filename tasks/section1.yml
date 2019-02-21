@@ -141,7 +141,7 @@
 - name: "SCORED | 1.1.2 | PATCH | Ensure separate partition exists for /tmp | enable and start/restart tmp.mount"
   systemd:
       name: tmp.mount
-      daemon_reload: yes
+      daemon_reload: no
       enabled: yes
       masked: no
       state: started
