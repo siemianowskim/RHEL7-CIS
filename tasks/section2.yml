@@ -476,7 +476,7 @@
       - level1
       - patch
       - rule_2.2.10
-  gnore_errors: yes
+  ignore_errors: yes
 
 - name: "SCORED | 2.2.11 | PATCH | Ensure IMAP and POP3 server is not enabled"
   service:
@@ -490,7 +490,7 @@
       - level1
       - patch
       - rule_2.2.11
-  gnore_errors: yes
+  ignore_errors: yes
 
 - name: "SCORED | 2.2.12 | PATCH | Ensure Samba is not enabled"
   service:
@@ -504,7 +504,7 @@
       - level1
       - patch
       - rule_2.2.12
-  gnore_errors: yes
+  ignore_errors: yes
 
 - name: "SCORED | 2.2.13 | PATCH | Ensure HTTP Proxy Server is not enabled"
   service:
@@ -518,7 +518,7 @@
       - level1
       - patch
       - rule_2.2.13
-  gnore_errors: yes
+  ignore_errors: yes
 
 - name: "SCORED | 2.2.14 | PATCH | Ensure SNMP Server is not enabled"
   service:
@@ -532,7 +532,7 @@
       - level1
       - patch
       - rule_2.2.14
-  gnore_errors: yes
+  ignore_errors: yes
 
 - name: "SCORED | 2.2.15 | PATCH | Ensure mail transfer agent is configured for local-only mode"
   lineinfile:
