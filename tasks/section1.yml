@@ -144,7 +144,7 @@
       daemon_reload: no
       enabled: yes
       masked: no
-      state: started
+#       state: started
   when:
       - rhel7cis_rule_1_1_2
   tags:
