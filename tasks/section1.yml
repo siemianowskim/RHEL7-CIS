@@ -320,17 +320,17 @@
       - patch
       - rule_1.1.21
 
-- name: "SCORED | 1.1.22 | PATCH | Disable Automounting"
-  service:
-      name: autofs
-      enabled: no
-  when:
-      - rhel7cis_allow_autofs == false and autofs_service_status.stdout == "loaded"
-      - rhel7cis_rule_1_1_22
-  tags:
-      - level1
-      - patch
-      - rule_1.1.22
+# - name: "SCORED | 1.1.22 | PATCH | Disable Automounting"
+#   service:
+#       name: autofs
+#       enabled: no
+#   when:
+#       - rhel7cis_allow_autofs == false and autofs_service_status.stdout == "loaded"
+#       - rhel7cis_rule_1_1_22
+#   tags:
+#       - level1
+#       - patch
+#       - rule_1.1.22
 
 #completed
 
