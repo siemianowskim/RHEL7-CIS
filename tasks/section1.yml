@@ -26,62 +26,6 @@
       - rule_1.1.1.1
       - cramfs
 
-- name: "SCORED | 1.1.1.2 | PATCH | Ensure mounting of freevxfs filesystems is disabled"
-  lineinfile:
-      dest: /etc/modprobe.d/CIS.conf
-      regexp: "^(#)?install freevxfs(\\s|$)"
-      line: "install freevxfs /bin/true"
-      create: yes
-  when:
-      - rhel7cis_rule_1_1_1_2
-  tags:
-      - level1
-      - scored
-      - patch
-      - rule_1.1.1.2
-      - freevxfs
-
-- name: "SCORED | 1.1.1.2 | PATCH | Remove freevxfs module"
-  modprobe:
-    name: freevxfs
-    state: absent
-  when:
-      - rhel7cis_rule_1_1_1_2
-  tags:
-      - level1
-      - scored
-      - patch
-      - rule_1.1.1.2
-      - freevxfs
-
-- name: "SCORED | 1.1.1.3 | PATCH | Ensure mounting of jffs2 filesystems is disabled"
-  lineinfile:
-      dest: /etc/modprobe.d/CIS.conf
-      regexp: "^(#)?install jffs2(\\s|$)"
-      line: "install jffs2 /bin/true"
-      create: yes
-  when:
-      - rhel7cis_rule_1_1_1_3
-  tags:
-      - level1
-      - scored
-      - patch
-      - rule_1.1.1.3
-      - jffs2
-
-- name: "SCORED | 1.1.1.3 | PATCH | Remove jffs2 module"
-  modprobe:
-    name: jffs2
-    state: absent
-  when:
-      - rhel7cis_rule_1_1_1_3
-  tags:
-      - level1
-      - scored
-      - patch
-      - rule_1.1.1.3
-      - jffs2
-
 - name: "SCORED | 1.1.1.4 | PATCH | Ensure mounting of hfs filesystems is disabled"
   lineinfile:
       dest: /etc/modprobe.d/CIS.conf
@@ -193,34 +137,6 @@
       - patch
       - rule_1.1.1.7
       - udf
-
-- name: "SCORED | 1.1.1.8 | PATCH | Ensure mounting of FAT filesystems is disabled"
-  lineinfile:
-      dest: /etc/modprobe.d/CIS.conf
-      regexp: "^(#)?install vfat(\\s|$)"
-      line: "install vfat /bin/true"
-      create: yes
-  when:
-      - rhel7cis_rule_1_1_1_8
-  tags:
-      - level1
-      - scored
-      - patch
-      - rule_1.1.1.8
-      - vfat
-
-- name: "SCORED | 1.1.1.8 | PATCH | Remove FAT module"
-  modprobe:
-    name: vfat
-    state: absent
-  when:
-      - rhel7cis_rule_1_1_1_8
-  tags:
-      - level2
-      - scored
-      - patch
-      - rule_1.1.1.8
-      - vfat
 
 - name: "SCORED | 1.1.2 | PATCH | Ensure separate partition exists for /tmp | enable and start/restart tmp.mount"
   systemd:
@@ -390,41 +306,6 @@
       - rule_1.1.16
       - rule_1.1.17
 
-- name: "NOTSCORED | 1.1.18 | PATCH | Ensure nodev option set on removable media partitions"
-  debug:
-      msg: "--> Not relevant"
-  changed_when: no
-  when:
-      - rhel7cis_rule_1_1_18
-  tags:
-      - level1
-      - notscored
-      - patch
-      - rule_1.1.18
-
-- name: "NOTSCORED | 1.1.19 | PATCH | Ensure nosuid option set on removable media partitions"
-  debug:
-      msg: "--> Not relevant"
-  changed_when: no
-  when:
-      - rhel7cis_rule_1_1_19
-  tags:
-      - level1
-      - notscored
-      - patch
-      - rule_1.1.19
-
-- name: "NOTSCORED | 1.1.20 | PATCH | Ensure noexec option set on removable media partitions"
-  debug:
-      msg: "--> Not relevant"
-  changed_when: no
-  when:
-      - rhel7cis_rule_1_1_20
-  tags:
-      - level1
-      - notscored
-      - patch
-      - rule_1.1.20
 
 - name: "SCORED | 1.1.21 | PATCH | Ensure sticky bit is set on all world-writable directories"
   shell: df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d -perm -0002 2>/dev/null | xargs chmod a+t
@@ -450,6 +331,8 @@
       - level1
       - patch
       - rule_1.1.22
+
+#completed
 
 - name: "NOTSCORED | 1.2.1 | PATCH | Ensure package manager repositories are configured"
   command: yum check-update
