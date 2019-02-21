@@ -364,6 +364,7 @@
       - services
       - patch
       - rule_2.2.4
+  ignore_errors: yes
 
 - name: "SCORED | 2.2.5 | PATCH | Ensure DHCP Server is not enabled"
   service:
@@ -380,6 +381,7 @@
       - services
       - patch
       - rule_2.2.5
+  ignore_errors: yes
 
 - name: "SCORED | 2.2.6 | PATCH | Ensure LDAP server is not enabled"
   service:
@@ -396,6 +398,7 @@
       - services
       - patch
       - rule_2.2.6
+  ignore_errors: yes
 
 - name: "SCORED | 2.2.7 | PATCH | Ensure NFS and RPC are not enabled"
   service:
@@ -413,6 +416,7 @@
       - services
       - patch
       - rule_2.2.7
+  ignore_errors: yes
 
 - name: "SCORED | 2.2.7 | PATCH | Ensure RPC is not enabled"
   service:
@@ -430,6 +434,7 @@
       - services
       - patch
       - rule_2.2.7
+  ignore_errors: yes
 
 - name: "SCORED | 2.2.8 | PATCH | Ensure DNS Server is not enabled"
   service:
@@ -443,6 +448,7 @@
       - level1
       - patch
       - rule_2.2.8
+  ignore_errors: yes
 
 - name: "SCORED | 2.2.9 | PATCH | Ensure FTP Server is not enabled"
   service:
