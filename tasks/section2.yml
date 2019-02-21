@@ -220,7 +220,7 @@
 - name: "NOTSCORED | 2.2.1.1 | PATCH | Ensure time synchronization is in use - service stop ntp"
   service:
       name: ntpd
-      state: stopped
+      state: absent
       enabled: no
   when:
       - rhel7cis_time_synchronization == "chrony" #and ntpd_service_status.stdout == "loaded"
@@ -237,7 +237,7 @@
       enabled: no
   ignore_errors: yes
   when:
-      - rhel7cis_time_synchronization == "ntp" and chronyd_service_status.stdout == "loaded"
+      - rhel7cis_time_synchronization == "ntp" #
       - rhel7cis_rule_2_2_1_1
   tags:
       - level1
