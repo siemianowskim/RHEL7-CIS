@@ -163,7 +163,7 @@
       owner: root
       group: root
       mode: 0644
-  notify: systemd restart tmp.mount
+#    notify: systemd restart tmp.mount
   when:
       - rhel7cis_rule_1_1_3
       - rhel7cis_rule_1_1_4
